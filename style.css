@@ -1,0 +1,269 @@
+/* Reset Geral */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #111827;
+    color: #ffffff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #ff007f;
+    text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
+    margin-bottom: 10px;
+}
+
+.ticker {
+    background-color: #000;
+    color: #00ffcc;
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 0 8px #00ffcc;
+    display: inline-block;
+}
+
+/* Container de 3 Colunas (Responsivo) */
+.main-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* Quebra em telas pequenas de celular */
+}
+
+/* Paineis Laterais */
+.side-panel {
+    background-color: #1f2937;
+    flex: 1;
+    min-width: 280px;
+    max-width: 340px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #374151;
+}
+
+.side-panel h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #374151;
+    padding-bottom: 5px;
+    color: #00ffcc;
+}
+
+/* Inputs e Selects do Cassino */
+input, select {
+    width: 100%;
+    background-color: #111827;
+    border: 1px solid #4b5563;
+    color: white;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+input:focus, select:focus {
+    border-color: #ff007f;
+    outline: none;
+    box-shadow: 0 0 5px #ff007f;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #4b5563;
+    margin: 15px 0;
+}
+
+/* Placar de Jogadores */
+.player-card {
+    background: #111827;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #ff007f;
+}
+
+.score-num {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #00ffcc;
+    text-shadow: 0 0 5px #00ffcc;
+}
+
+.target {
+    text-align: center;
+    font-weight: bold;
+    color: #ffd700;
+    margin-top: 10px;
+}
+
+/* Painel Central do Tabuleiro */
+.center-panel {
+    flex: 1.2;
+    min-width: 320px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1f2937;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.2);
+    border: 1px solid #374151;
+}
+
+.jackpot {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 8px #ffd700;
+    margin-bottom: 10px;
+    animation: pulse 1.5s infinite;
+}
+
+#turn {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Tabuleiro Grid */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background-color: #111827;
+    padding: 12px;
+    border-radius: 12px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 20px;
+}
+
+.cell {
+    background-color: #1f2937;
+    border: 2px solid #374151;
+    border-radius: 8px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cell:hover {
+    background-color: #2d3748;
+    border-color: #ff007f;
+}
+
+/* Botões Padronizados Vegas */
+.vgas-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #ff007f, #7928ca);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.vgas-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.vgas-btn.share { background: linear-gradient(45deg, #25d366, #128c7e); }
+.vgas-btn.clear { background: #374151; }
+.vgas-btn.sm { width: auto; padding: 10px 15px; }
+
+/* Chat Box */
+#chatBox {
+    background: #111827;
+    height: 150px;
+    border-radius: 8px;
+    padding: /* Ajuste para os botões do modal de confirmação */
+#confirmModal .modal-content div {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#confirmModal .vgas-btn {
+    min-width: 100px;
+}
+10px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    border: 1px solid #4b5563;
+}
+
+.chat-input {
+    display: flex;
+    gap: 8px;
+}
+
+.chat-input input { margin-bottom: 0; }
+
+/* Animação Pulso */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Modal Básica */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    align-items: center; justify-content: center;
+}
+
+.modal-content {
+    background-color: #1f2937;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #ff007f;
+}

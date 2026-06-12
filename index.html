@@ -1,0 +1,129 @@
+.<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha Vegas Edition</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#111827">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="lights"></div>
+
+    <header>
+        <h1>🎰 JOGO DA VELHA VEGAS EDITION 🎰</h1>
+        <div class="ticker">
+            💎 JACKPOT • CHAT • RANKING • MULTIPLAYER • CAMPEONATO VIP 💎
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- PAINEL ESQUERDO: CAMPEONATO -->
+        <div class="side-panel">
+            <h2>👤 Jogadores</h2>
+            <input id="player1" placeholder="Nome Jogador 1">
+            <select id="symbol1">
+                <option>X</option>
+                <option>◯</option>
+                <option>□</option>
+                <option>△</option>
+            </select>
+
+            <input id="player2" placeholder="Nome Jogador 2">
+            <select id="symbol2">
+                <option>◯</option>
+                <option>X</option>
+                <option>□</option>
+                <option>△</option>
+            </select>
+
+            <button class="vgas-btn" onclick="startGame()">Iniciar Campeonato</button>
+            <hr>
+
+            <div class="player-card">
+                <div id="name1">Jogador 1</div>
+                <div id="score1" class="score-num">0</div>
+            </div>
+            <div class="player-card">
+                <div id="name2">Jogador 2</div>
+                <div id="score2" class="score-num">0</div>
+            </div>
+            <div class="target">🏆 Objetivo: 10 Vitórias</div>
+        </div>
+
+        <!-- TABULEIRO CENTRAL -->
+        <div class="center-panel">
+            <div class="jackpot">💰 JACKPOT EM JOGO 💰</div>
+            <div id="turn">Aguardando...</div>
+
+            <div class="board">
+                <button class="cell" data-index="0"></button>
+                <button class="cell" data-index="1"></button>
+                <button class="cell" data-index="2"></button>
+                <button class="cell" data-index="3"></button>
+                <button class="cell" data-index="4"></button>
+                <button class="cell" data-index="5"></button>
+                <button class="cell" data-index="6"></button>
+                <button class="cell" data-index="7"></button>
+                <button class="cell" data-index="8"></button>
+            </div>
+
+            <div class="controls">
+                <button class="vgas-btn" onclick="resetBoard()">Nova Rodada</button>
+                <button class="vgas-btn share" onclick="shareWhatsApp()">📱 Compartilhar</button>
+                <button class="vgas-btn clear" onclick="clearRanking()">🗑 Zerar Ranking</button>
+            </div>
+        </div>
+
+        <!-- PAINEL DIREITO: CHAT + RANKING -->
+        <div class="side-panel">
+            <h2>💬 Chat</h2>
+            <div id="chatBox">
+                <div class="message system">Sistema: Bem-vindo ao Vegas Edition!</div>
+            </div>
+            <div class="chat-input">
+                <input id="chatInput" placeholder="Digite uma mensagem">
+                <button class="vgas-btn sm" onclick="sendMessage()">Enviar</button>
+            </div>
+            <hr>
+            <h2>🏆 Ranking Top 5</h2>
+            <ol id="rankingList"></ol>
+        </div>
+    </div>
+    <!-- MODAL VENCEDOR -->
+    <div id="winnerModal" class="modal">
+        <div class="modal-content">
+            <h2 id="winnerText">Vencedor</h2>
+            <button class="vgas-btn" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <!-- NOVO: MODAL DE CONFIRMAÇÃO PARA ZERAR RANKING -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h2>⚠️ Atenção</h2>
+            <p style="margin: 15px 0; color: #fff;">Deseja realmente zerar o Top 5?</p>
+            <div style="display: flex; gap: 10px;">
+                <button class="vgas-btn" onclick="confirmClear(true)">SIM</button>
+                <button class="vgas-btn clear" onclick="confirmClear(false)">NÃO</button>
+            </div>
+        </div>
+    </div>
+
+<audio id="startSound">
+    <source src="sounds/start.mp3">
+</audio>
+
+    <div id="coinContainer"></div>
+
+    <!-- SCRIPTS -->
+    <script src="app.js" defer></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("sw.js");
+        }
+    </script>
+</body>
+</html>
